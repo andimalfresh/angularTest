@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>{{ folder }} balls</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,27 @@
   </ion-header>
 
   <div id="container">
+    <ion-card *ngFor="let p of pictures; let i = index">
+      <ion-card-header>
+        <ion-card-subtitle>{{p.title}}</ion-card-subtitle>
+        <ion-card-title></ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content *ngIf="display">
+        <img class='datPic' src="{{p.path}}" />
+        <p>Keep close to Nature's heart... and break clear away, once in awhile,
+        and climb a mountain or spend a week in the woods. Wash your spirit clean.</p>
+      </ion-card-content>
+    </ion-card>
     <strong class="capitalize">{{ folder }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <p class="helloSickMoney">
+      <ion-list class="holder">
+        <ion-item>
+          <ion-range (click)="checkTheSlider()" min="0" max="100" step="25" snaps="true" ticks="false" color="secondary"></ion-range>
+        </ion-item>
+      </ion-list>
+    </p>
   </div>
+
 </ion-content>
